@@ -15,6 +15,7 @@ let g:vimtex_latexmk_options = '-pdf -shell-escape -verbose -file-line-error -sy
 let g:ycm_global_ycm_extra_conf = '/Users/mafanasiev/.config/dotfiles/ycm_extra_conf_global.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_always_populate_location_list = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 if !exists('g:ycm_semantic_triggers')
   let g:ycm_semantic_triggers = {}
 endif
@@ -34,6 +35,9 @@ nnoremap ,ff :YcmCompleter FixIt<CR>
 let g:NERDSpaceDelims = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDCommentEmptyLines = 1
+
+" CppHighlighter
+let g:cpp_experimental_template_highlight = 1
 
 " Clang-rename
 noremap <leader>cr :pyf /usr/local/opt/llvm/bin/clang-rename

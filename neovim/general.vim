@@ -36,6 +36,8 @@ set textwidth=80
 filetype plugin on
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 xnoremap p "_dP
+set smartcase
+set ignorecase
 
 " Terminal escape
 :tnoremap <Esc> <C-\><C-n>

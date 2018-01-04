@@ -7,6 +7,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Colourschemes
 Plug 'morhetz/gruvbox'
