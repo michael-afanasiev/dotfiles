@@ -13,8 +13,10 @@ Plug 'rhysd/vim-clang-format'                                             " Clan
 Plug 'mhartington/oceanic-next'                                           " Colour theme
 call plug#end()
 
+let g:clang_format#command = '/usr/local/opt/llvm/bin/clang-format'
+
 " YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '/Users/mafanasiev/.ycm_extra_conf_global.py'
+let g:ycm_global_ycm_extra_conf = '/Users/mafanasiev/.config/dotfiles/ycm_extra_conf_global.py'
 
 " Vimtex
 let g:tex_flavor = "latex"
