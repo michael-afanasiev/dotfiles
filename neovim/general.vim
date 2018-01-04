@@ -34,3 +34,8 @@ set shiftwidth=2
 set softtabstop=2
 set textwidth=80
 filetype plugin on
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+xnoremap p "_dP
+
+" Terminal escape
+:tnoremap <Esc> <C-\><C-n>
