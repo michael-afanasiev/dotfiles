@@ -13,42 +13,21 @@ Plug 'rhysd/vim-clang-format'                                             " Clan
 Plug 'mhartington/oceanic-next'                                           " Colour theme
 call plug#end()
 
+" Clang format
 let g:clang_format#command = '/usr/local/opt/llvm/bin/clang-format'
-
-" YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '/Users/mafanasiev/.config/dotfiles/ycm_extra_conf_global.py'
 
 " Vimtex
 let g:tex_flavor = "latex"
-let g:vimtex_latexmk_build_dir = './build'
 let g:vimtex_latex_progname = 'nvr'
-let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+let g:vimtex_latexmk_build_dir = 'build'
+let g:vimtex_compiler_latexmk = {'build_dir' : 'build'}
 let g:vimtex_view_general_options = '-r @line @pdf @tex'
-let g:vimtex_compiler_latexmk = {
-  \ 'build_dir' : 'build',
-\}
+let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
 let g:vimtex_latexmk_options = '-pdf -shell-escape -verbose -file-line-error -synctex=1 -interaction=nonstopmode'
 
 " This adds a callback hook that updates Skim after compilation
 let g:vimtex_latexmk_callback_hooks = ['UpdateSkim']
-function! UpdateSkim(status)
-  if !a:status | return | endif
-  let l:out = b:vimtex.out()
-  let l:tex = expand('%:p')
-  let l:cmd = [g:vimtex_view_general_viewer, '-r']
-  if !empty(system('pgrep Skim'))
-    call extend(l:cmd, ['-g'])
-  endif
-  if has('nvim')
-    call jobstart(l:cmd + [line('.'), l:out, l:tex])
-  elseif has('job')
-    call job_start(l:cmd + [line('.'), l:out, l:tex])
-  else
-    call system(join(l:cmd + [line('.'), shellescape(l:out), shellescape(l:tex)], ' '))
-  endif
-endfunction
-
-" Autocomplete
+let g:ycm_global_ycm_extra_conf = '/Users/mafanasiev/.config/dotfiles/ycm_extra_conf_global.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_always_populate_location_list = 1
 if !exists('g:ycm_semantic_triggers')
@@ -76,8 +55,8 @@ syntax enable
 colorscheme OceanicNext" 
 " colorscheme Tomorrow-Night-Eighties
 " colorscheme gruvbox
- " let g:gruvbox_italic=1
- " set background=light
+" let g:gruvbox_italic=1
+" set background=light
 
 " Nerd commenter
 let g:NERDSpaceDelims = 1
@@ -103,7 +82,7 @@ endif
 " Clang-rename
 noremap <leader>cr :pyf /usr/local/opt/llvm/bin/clang-rename
 
-" realign buffers when iterm goes fullscreen
+" Realign buffers when iterm goes fullscreen
 augroup FixProportionsOnResize
   au!
   au VimResized * exe "normal! \<c-w>="
@@ -123,3 +102,21 @@ set shiftwidth=2
 set softtabstop=2
 set textwidth=80
 filetype plugin on
+
+" Functions
+function! UpdateSkim(status)
+  if !a:status | return | endif
+  let l:out = b:vimtex.out()
+  let l:tex = expand('%:p')
+  let l:cmd = [g:vimtex_view_general_viewer, '-r']
+  if !empty(system('pgrep Skim'))
+    call extend(l:cmd, ['-g'])
+  endif
+  if has('nvim')
+    call jobstart(l:cmd + [line('.'), l:out, l:tex])
+  elseif has('job')
+    call job_start(l:cmd + [line('.'), l:out, l:tex])
+  else
+    call system(join(l:cmd + [line('.'), shellescape(l:out), shellescape(l:tex)], ' '))
+  endif
+endfunction
