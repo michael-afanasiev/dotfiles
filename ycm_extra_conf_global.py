@@ -13,7 +13,8 @@ flags = [
     '-I', '/Users/mafanasiev/Development/Salvus/SalvusPhysics/include',
     '-I', '/Users/mafanasiev/Development/Salvus/SalvusModel/include',
     '-I', '/Users/mafanasiev/Development/Salvus/SalvusProblem/include',
-    '-I', '/opt/petsc/debug_double_int64/include',
+    '-I', '/Users/mafanasiev/Development/Salvus/SalvusProblem/obsolete',
+    '-I', '/opt/petsc/release_single_int64/include',
     '-I', '/usr/local/include/eigen3',
 ]
 
