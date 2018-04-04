@@ -12,7 +12,7 @@ let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSuppor
 let g:vimtex_latexmk_options = '-pdf -shell-escape -verbose -file-line-error -synctex=1 -interaction=nonstopmode'
 
 " YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '/Users/mafanasiev/.config/dotfiles/ycm_extra_conf_global.py'
+let g:ycm_global_ycm_extra_conf = $HOME."/.ycm_extra_conf_global.py"
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_always_populate_location_list = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1

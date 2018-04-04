@@ -1,4 +1,9 @@
 import os
+from pathlib import Path
+
+salvus_base = os.environ['SALVUS_BASE']
+petsc_dir = os.environ['PETSC_DIR']
+eigen_dir = os.environ['EIGEN_DIR']
 
 # Compiler flags.
 flags = [
@@ -8,16 +13,15 @@ flags = [
     '-DNDEBUG',
     '-x', 'c++',
     '-std=c++11',
-    '-I', '/Users/mafanasiev/Development/Salvus/SalvusFEM/include',
-    '-I', '/Users/mafanasiev/Development/Salvus/SalvusUtility/include',
-    '-I', '/Users/mafanasiev/Development/Salvus/SalvusPhysics/include',
-    '-I', '/Users/mafanasiev/Development/Salvus/SalvusModel/include',
-    '-I', '/Users/mafanasiev/Development/Salvus/SalvusProblem/include',
-    '-I', '/Users/mafanasiev/Development/Salvus/SalvusProblem/obsolete',
-    '-I', '/opt/petsc/release_single_int64/include',
-    '-I', '/usr/local/include/eigen3',
+    '-I', Path(salvus_base) / 'SalvusFEM' / 'include',
+    '-I', Path(salvus_base) / 'SalvusUtility' / 'include',
+    '-I', Path(salvus_base) / 'SalvusPhysics' / 'include',
+    '-I', Path(salvus_base) / 'SalvusModel' / 'include',
+    '-I', Path(salvus_base) / 'SalvusProblem' / 'include',
+    '-I', Path(salvus_base) / 'SalvusProblem' / 'obsolete',
+    '-I', Path(petsc_dir) / 'include',
+    '-I', Path(eigen_dir)
 ]
-
 
 def FlagsForFile(filename, **kwargs):
     return {
