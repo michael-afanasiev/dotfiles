@@ -25,6 +25,7 @@
 *.log
 *.sql
 *.sqlite
+.ctrlp
 
 # OS generated files #
 ######################
@@ -53,3 +54,6 @@ __pycache__*
 
 # LaTeX
 *.blg
+
+# VSCODE
+.vscode

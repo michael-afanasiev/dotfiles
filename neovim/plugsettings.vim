@@ -42,3 +42,5 @@ let g:cpp_experimental_template_highlight = 1
 " Clang-rename
 noremap <leader>cr :pyf /usr/local/opt/llvm/bin/clang-rename
 
+" CtrlP
+let g:ctrlp_root_markers = ['.ctrlp']
