@@ -20,7 +20,8 @@ flags = [
     '-I', Path(salvus_base) / 'SalvusProblem' / 'include',
     '-I', Path(salvus_base) / 'SalvusProblem' / 'obsolete',
     '-I', Path(petsc_dir) / 'include',
-    '-I', Path(eigen_dir)
+    '-I', Path(eigen_dir),
+    '-I', Path('/usr/local/cuda/include')
 ]
 
 def FlagsForFile(filename, **kwargs):

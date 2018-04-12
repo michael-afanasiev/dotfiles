@@ -1,5 +1,5 @@
 " Clang format
-let g:clang_format#command = '/usr/local/opt/llvm/bin/clang-format'
+let g:clang_format#command = '/usr/bin/clang-format-5.0'
 
 " Vimtex
 let g:tex_flavor = "latex"
