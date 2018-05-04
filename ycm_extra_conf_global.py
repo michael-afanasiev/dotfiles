@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 salvus_base = os.environ['SALVUS_BASE']
-petsc_dir = os.environ['PETSC_DIR']
+petsc_dir = os.environ['PETSC_HEADERS_DIR']
 eigen_dir = os.environ['EIGEN_DIR']
 
 # Compiler flags.
@@ -15,10 +15,12 @@ flags = [
     '-std=c++11',
     '-I', Path(salvus_base) / 'SalvusFEM' / 'include',
     '-I', Path(salvus_base) / 'SalvusUtility' / 'include',
+    '-I', Path(salvus_base) / 'SalvusUtility' / 'include' / 'External' / 'rapidjson' / 'include',
     '-I', Path(salvus_base) / 'SalvusPhysics' / 'include',
     '-I', Path(salvus_base) / 'SalvusModel' / 'include',
     '-I', Path(salvus_base) / 'SalvusProblem' / 'include',
     '-I', Path(salvus_base) / 'SalvusProblem' / 'obsolete',
+    '-I', Path(salvus_base) / 'SalvusIo' / 'include',
     '-I', Path(petsc_dir) / 'include',
     '-I', Path(eigen_dir)
 ]
