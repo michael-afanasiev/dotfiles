@@ -1,9 +1,9 @@
 import os
 from pathlib import Path
 
-salvus_base = os.environ['SALVUS_BASE']
+salvus_base = Path(os.environ['SALVUS_HOME']) / "Salvus"
 petsc_dir = os.environ['PETSC_HEADERS_DIR']
-eigen_dir = os.environ['EIGEN_DIR']
+third_party = os.environ['SALVUS_EXTERNAL_INSTALL']
 
 # Compiler flags.
 flags = [
@@ -21,8 +21,9 @@ flags = [
     '-I', Path(salvus_base) / 'SalvusProblem' / 'include',
     '-I', Path(salvus_base) / 'SalvusProblem' / 'obsolete',
     '-I', Path(salvus_base) / 'SalvusIo' / 'include',
-    '-I', Path(petsc_dir) / 'include',
-    '-I', Path(eigen_dir)
+    '-I', Path(petsc_dir),
+    '-I', Path(third_party) / 'include',
+    '-I', Path(third_party) / 'include' / 'eigen3'
 ]
 
 def FlagsForFile(filename, **kwargs):
